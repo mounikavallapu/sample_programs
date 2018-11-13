@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Reverse of the string Program</h2>
+<p>Enter the string</p>
+<input type="text" id="str">
+
+<button onclick="myFunction(str.value)">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+
+function myFunction(str) {
+var i,len=str.length,output="",array=[];
+array=str.split("");
+for(i=array.length-1; i>=0; i--){
+output=output+array[i];
+}
+console.log(output);
+document.getElementById("demo").innerHTML = output;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Longest Word from the sentence</h2>
+
+<button onclick="myFunction('Hello World sandeep123334422 mounika2 manisha asritha satva')">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+
+function myFunction(str) {
+var longestword,array=[];
+array=str.split(" ");
+longestword= array.sort(function(a,b){
+return b.length-a.length
+})
+
+document.getElementById("demo").innerHTML = longestword[0];
+
+}
+</script>
+
+</body>
+</html>

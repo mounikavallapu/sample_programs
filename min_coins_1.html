@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p>Click on button to get Minimum coin required count</p>
+    <input type="number" id="maxValue">
+    <button onclick="findCount(maxValue.value)">Try it</button>
+	<p id="demo"></p>
+<script>
+function minCoins(coins, noofCoins, finalcount) {
+    var mySum = [finalcount + 1];
+    mySum[0] = 0;
+    for (var i = 1; i <= finalcount; i++)
+        mySum[i] = Number.MAX_VALUE;
+    for (var i = 1; i <= finalcount; i++) {
+        for (var j = 0; j < noofCoins; j++)
+            if (coins[j] <= i) {
+                var sub_res = mySum[i - coins[j]];
+                if (sub_res != Number.MAX_VALUE && sub_res + 1 < mySum[i])
+                    mySum[i] = sub_res + 1;
+            }
+    }
+	return mySum[finalcount];
+	
+}
+
+function findCount(maxValue) {
+    if (maxValue == null || maxValue == "" || maxValue == undefined) {
+        alert("Please enter Maximum value");
+    } else if (maxValue < 0 || maxValue == 0) {
+        alert("Please enter valid Maximum value")
+    } else {
+        var coins = [1,3,5];
+        var coinsLength = coins.length;
+        console.log("Minimum coins required is " + minCoins(coins, coinsLength, maxValue));
+		document.getElementById("demo").innerHTML ="Minimum coins required is "+ minCoins(coins, coinsLength, maxValue);
+        return 0;
+    }
+
+} 
+</script>
+</body>
+
+</html>
